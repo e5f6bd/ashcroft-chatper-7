@@ -3,8 +3,17 @@ PVector[][] baseVectors = {
   {new PVector(1, 0, 0), new PVector(0, 1, 0), new PVector(0, 0, 2.4)},
   {new PVector(1, 0, 0), new PVector(0, 1.6, 0), new PVector(0, 0, 2.4)},
   {new PVector(1, 0, 0), new PVector(-0.8, 1.6, 0), new PVector(0, 0, 2.4)},
-  {new PVector(1, 0), new PVector(-0.8, 1.6, 0), new PVector(1.7, 1.8, 2.4)},
+  {new PVector(1, 0, 0), new PVector(-0.8, 1.6, 0), new PVector(1.7, 1.8, 2.4)},
+  rhombo(),
 };
+PVector[] rhombo() {
+  float k = sqrt(2) / 3;
+  return new PVector[]{
+    new PVector(1+k, k, k),
+    new PVector(k, 1+k, k),
+    new PVector(k, k, 1+k),
+  };
+}
 PVector[] beforeVector = baseVectors[0];
 PVector[] afterVector = baseVectors[0];
 float changeMillis = -1000;
