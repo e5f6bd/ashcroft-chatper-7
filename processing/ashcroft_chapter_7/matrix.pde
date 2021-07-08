@@ -45,3 +45,19 @@ void printMatrix(PMatrix3D m){
   System.out.printf("%f %f %f %f%n", m.m20, m.m21, m.m22, m.m23);
   System.out.printf("%f %f %f %f%n", m.m30, m.m31, m.m32, m.m33);
 }
+
+PVector[] getPrependiculars(PVector v, float d) {
+  v = v.copy().normalize();
+  float[] a = v.array();
+  float[] b = new float[3];
+  for(int i = 0; i < 3; i++){
+    int j = (i+1)%3, k = (i+2)%3;
+    if(dist(0,0,a[j],a[k]) > 1e-3){
+      b[i] = 0;
+      b[j] = -a[k];
+      b[k] = a[j];
+    }
+  }
+  PVector u = new PVector(b[0], b[1], b[2]);
+  return new PVector[] {u.copy().mult(d), u.copy().cross(v).mult(d)};
+}
