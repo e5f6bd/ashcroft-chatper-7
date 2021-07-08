@@ -38,3 +38,10 @@
 //  applyMatrix(
 //  );
 //}
+
+void printMatrix(PMatrix3D m){
+  System.out.printf("%f %f %f %f%n", m.m00, m.m01, m.m02, m.m03);
+  System.out.printf("%f %f %f %f%n", m.m10, m.m11, m.m12, m.m13);
+  System.out.printf("%f %f %f %f%n", m.m20, m.m21, m.m22, m.m23);
+  System.out.printf("%f %f %f %f%n", m.m30, m.m31, m.m32, m.m33);
+}
